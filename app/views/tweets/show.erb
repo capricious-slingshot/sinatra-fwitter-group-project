@@ -1,0 +1,13 @@
+<h1><%= tweet.user.username %></h1>
+  <p>"<%= tweet.content %>"</p>
+  <p style="font-size:12px">
+    <span style="color: blue"><%= tweet.user.username %></span> |
+    <span style="color: green"><%= tweet.created_at.strftime("%a %b %d %I:%M%p") %></span>
+  </p>
+  <% if session[:email] == tweet.user.email %>
+    <p><a href="/tweets/<%= tweet.id %>/edit">Edit Tweet</a></p>
+    <form action="/tweets/<%= tweet.id %>" method="POST">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete Tweet">
+    </form>
+  <% end %>

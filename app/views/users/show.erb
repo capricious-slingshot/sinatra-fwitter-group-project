@@ -1,0 +1,8 @@
+<h1><%= user.username %></h1>
+<% user.tweets.each do |tweet| %>
+  <p>"<%= tweet.content %>"</p>
+  <p style="font-size:12px">
+    <span style="color: blue"><%= tweet.user.username %></span> |
+    <span style="color: green"><%= tweet.created_at.strftime("%a %b %d %I:%M%p") %></span>
+  </p>
+<% end %>
